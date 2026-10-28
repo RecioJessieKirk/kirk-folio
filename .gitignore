@@ -1,0 +1,51 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+playwright-report
+test-results
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Hosting and test artifacts
+.vercel/
+coverage/
+*.tsbuildinfo
+
+# Temporary files and local editor settings
+tmp/
+temp/
+.vscode/
+Thumbs.db
+*.bak
+*.tmp
+*.orig
+
+# Local credentials and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Internal agent notes (kept locally)
+HANDOFF*.md
+issues.md
+AGENTS.md
