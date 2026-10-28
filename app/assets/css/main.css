@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@import './fonts.css';
+
+@theme static {
+  --color-ink: #2a2340;
+  --color-purple: #977dff;
+  --color-lilac: #b7a3ff;
+  --color-pale: #e9e1f4;
+  --font-display: 'Proxima Nova', 'Trebuchet MS', sans-serif;
+  --font-body: 'Switzer', 'Arial', sans-serif;
+  --shadow-logo: 0 0 16px rgb(151 125 255 / 22%);
+  --animate-hero-enter: hero-enter 0.7s ease both;
+  --animate-hero-settle: hero-settle 1.1s ease both;
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes hero-settle {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: -12deg;
+    }
+  }
+}
+
+@custom-variant mobile-nav (@media (max-width: 919px));
+@custom-variant phone (@media (max-width: 599px));
+@custom-variant fine-hover (@media (hover: hover) and (pointer: fine));
+@custom-variant touch (@media (hover: none));
+@custom-variant supports-frosted (@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))));
+
+:root {
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --content-width: 1100px;
+  --nav-height: 4.5rem;
+}
+
+@layer base {
+  html {
+    @apply scheme-dark scroll-smooth scroll-pt-[calc(var(--nav-height)+1rem)] motion-reduce:scroll-auto;
+  }
+  body {
+    @apply m-0 bg-ink font-body text-base leading-[1.75] font-normal text-white;
+  }
+  button,
+  a {
+    @apply touch-manipulation [-webkit-tap-highlight-color:var(--color-lilac)];
+  }
+  button {
+    @apply cursor-pointer;
+  }
+  a {
+    @apply underline-offset-4;
+  }
+  :where(button, a, input, textarea):focus-visible {
+    @apply outline-3 outline-offset-5 outline-solid outline-lilac;
+  }
+  ::selection {
+    @apply bg-lilac text-ink;
+  }
+}
